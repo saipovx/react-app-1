@@ -1,0 +1,26 @@
+version: "3"
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/src
+    # environment:
+    # API_URL: "http://localhost/api/v2"
+    # volumes:
+    #   - ./pgadmin:/var/lib/pgadmin
+    # command: npm start
+    ports:
+      # - "3000:3000"
+      - "80:3000"
+      - "8443:8443"
+      - "8080:8080"
+      - "443:8443"
+    restart: unless-stopped
+#    deploy:
+#      resources:
+#        limits:
+#          cpus: '0.5'
+#          memory: 1G
